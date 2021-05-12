@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-const SERVER_URL = "http://localhost:3000/airplanes.json";
+const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/airplanes.json";
+
+axios.get(SERVER_URL).then((results)=>{console.log(results.data)});
+axios.get(SERVER_URL).then((results)=>{console.log(results.data[0].name)});
 
 class Airplanes extends Component {
   constructor() {
@@ -16,7 +19,7 @@ class Airplanes extends Component {
     const fetchAirplanes=()=>{
       axios.get(SERVER_URL).then((results) => {
         this.setState({airplanes: results.data});
-        setTimeout(fetchAirplanes, 4000); 
+        setTimeout(fetchAirplanes, 4000);
       });
       this.saveAirplane = this.saveAirplane.bind(this);
     };
@@ -34,20 +37,22 @@ class Airplanes extends Component {
     return (
       <div>
         <h1>Airplanes</h1>
-        {/* <AirplaneForm onSubmit={this.saveAirplane} /> */}
-        <AirplanesList airplanes={this.state.airplanes} />
+      <AirplaneList airplane={ this.state.airplanes }/>
       </div>
+
+
+
     );
   }
 }
 
 
-
-const AirplanesList = (props) => {
+//
+const AirplaneList = (props) => {
   return (
     <div>
       {props.airplanes.map((s) => (
-        <p key={s.id}>{s.content}</p>
+        <p key={s.id}>{s.data}</p>
       ))}
     </div>
   );

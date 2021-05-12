@@ -15,7 +15,7 @@ class Flights extends Component {
     const fetchFlights=()=>{
       axios.get(SERVER_URL).then((results) => {
         this.setState({flights: results.data});
-        setTimeout(fetchFlights, 4000); 
+        setTimeout(fetchFlights, 4000);
       });
       this.saveFlight = this.saveFlight.bind(this);
     };
