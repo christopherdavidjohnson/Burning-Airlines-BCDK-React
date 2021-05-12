@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
 
@@ -13,10 +13,10 @@ class Flights extends Component {
     };
   }
 
-  componentDidMount(){
-    const fetchFlights=()=>{
+  componentDidMount() {
+    const fetchFlights = () => {
       axios.get(SERVER_URL).then((results) => {
-        this.setState({flights: results.data});
+        this.setState({ flights: results.data });
         setTimeout(fetchFlights, 4000);
         // setTimeout(console.log(this.state.flights), 10000);
       });
