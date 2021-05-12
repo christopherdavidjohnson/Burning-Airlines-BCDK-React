@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import '../stylesheets/flights.css';
 
 const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
 
@@ -27,26 +28,28 @@ class Flights extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Flights</h1>
-        <table>
-        <tr>
-          <th>Origin</th>
-          <th>Destination</th>
-          <th>Departure</th>
-          <th>Arrival</th>
-        </tr>
-          {this.state.flights.map((f) => (
+      <div class="everythingflights">
 
-          <tr>
-            <td>{f.origin}</td>
-            <td>{f.destination}</td>
-            <td>{f.departure}</td>
-            <td key={f.id}>{f.arrival}</td>
+        <h1>Flights</h1>
+
+        <table class="flightstable">
+
+          <tr class="flightstablehead">
+            <th class="flightheadercell">Origin</th>
+            <th class="flightheadercell">Destination</th>
+            <th class="flightheadercell">Departure</th>
+            <th class="flightheadercell">Arrival</th>
           </tr>
 
+          {this.state.flights.map((f) => (
+            <tr>
+              <td class="flightstablecell">{f.origin}</td>
+              <td class="flightstablecell">{f.destination}</td>
+              <td class="flightstablecell">{f.departure}</td>
+              <td class="flightstablecell">{f.arrival}</td>
+            </tr>
+          ))}
 
-      ))}
       </table>
       </div>
     );
