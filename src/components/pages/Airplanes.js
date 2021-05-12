@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import '../stylesheets/airplanes.css';
 
 const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/airplanes.json";
 
