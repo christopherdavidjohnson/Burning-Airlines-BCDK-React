@@ -3,5 +3,17 @@
 }
 
 nav{
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: center;
+  background-color: red;
+}
+
+.navlinks{
+  padding: 10px;
+}
+
+.navlink{
+  display: inline;
+  padding: 10px;
 }
