@@ -30,6 +30,14 @@ class Airplanes extends Component {
 
 
   render() {
+
+  const seats = [];
+    this.state.airplanes.map((a) => {
+    for (let i = 0; i < a.rows; i++){
+      seats.push(<p>Seat</p>)
+    }
+  });
+
     return (
       <div>
         <h1>Airplanes</h1>
@@ -38,7 +46,7 @@ class Airplanes extends Component {
 
           <p key={a.id}>Name {a.name}</p>
 
-        {React.createElement("p",null,a.rows)}
+          {seats}
 
           <p key={a.id}>Rows {a.rows}</p>
           <p key={a.id}>Colums {a.columns}</p>
