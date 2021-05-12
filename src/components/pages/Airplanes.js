@@ -28,6 +28,7 @@ class Airplanes extends Component {
   }
 
   render() {
+
     let airplanes = {};
 
     for (let i = 0; i < this.state.airplanes.length; i++) {
@@ -36,7 +37,10 @@ class Airplanes extends Component {
 
     for (let i = 0; i < this.state.airplanes.length; i++) {
       for (let j = 0; j < this.state.airplanes[i].rows; j++) {
-        airplanes[i].push(<p>Seat</p>)
+        for (let k = 0; k < this.state.airplanes[i].columns; k++) {
+          airplanes[i].push(<div class='seat'>Seat</div>)
+        }
+        airplanes[i].push(<div class='row'>New Row</div>)
       }
     }
 
