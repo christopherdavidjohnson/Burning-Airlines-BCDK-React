@@ -5,7 +5,7 @@ class Nav extends Component {
   render () {
     return (
       <nav>
-          <ul>
+          <ul class="navlist">
             <li>
               <Link to="/">Home</Link>
             </li>

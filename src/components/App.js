@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Homepage from "./Homepage";
-import Airplanes from "./Airplanes";
+import Homepage from "./pages/Homepage";
+import Airplanes from "./pages/Airplanes";
 import Flights from "./Flights";
 import Search from "./Search";
 import Nav from "./Nav";
-import Admin from "./Admin";
+import Admin from "./pages/Admin";
 
 function App() {
   return (

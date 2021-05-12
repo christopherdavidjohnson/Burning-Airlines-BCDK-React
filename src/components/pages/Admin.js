@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import AirplaneForm from './AirplaneForm'
-import FlightForm from './FlightForm'
+import AirplaneForm from '../AirplaneForm'
+import FlightForm from '../FlightForm'
 
 class Admin extends Component {
   render() {
@@ -11,7 +11,7 @@ class Admin extends Component {
         <h1>Create new flight</h1>
         <FlightForm/>
       </div>
-      
+
     );
   }
 }
