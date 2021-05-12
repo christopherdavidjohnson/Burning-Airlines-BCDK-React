@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import '../stylesheets/airplanes.css';
+import axios from "axios";
+import "../stylesheets/airplanes.css";
 
 const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/airplanes.json";
 
@@ -15,10 +15,10 @@ class Airplanes extends Component {
     };
   }
 
-  componentDidMount(){
-    const fetchAirplanes=()=>{
+  componentDidMount() {
+    const fetchAirplanes = () => {
       axios.get(SERVER_URL).then((results) => {
-        this.setState({airplanes: results.data});
+        this.setState({ airplanes: results.data });
         setTimeout(fetchAirplanes, 4000);
       });
       // this.saveAirplane = this.saveAirplane.bind(this);
@@ -27,33 +27,32 @@ class Airplanes extends Component {
     fetchAirplanes();
   }
 
-
   render() {
+    let airplanes = {};
 
-  const seats = [];
-
-    this.state.airplanes.map((a) => {
-
-    for (let i = 0; i < a.rows; i++){
-      seats.push(<p>Seat</p>)
+    for (let i = 0; i < this.state.airplanes.length; i++) {
+      airplanes[i] = [];
     }
-  });
+
+    for (let i = 0; i < this.state.airplanes.length; i++) {
+      for (let j = 0; j < this.state.airplanes[i].rows; j++) {
+        airplanes[i].push(<p>Seat</p>)
+      }
+    }
 
     return (
       <div>
         <h1>Airplanes</h1>
-        {this.state.airplanes.map((a) => (
-        <div class="plane">
+        {this.state.airplanes.map((a,i) => (
+          <div class="plane">
+            <p key={a.id}>Name {a.name}</p>
 
-          <p key={a.id}>Name {a.name}</p>
+            {airplanes[i]}
 
-          {seats}
-
-          <p key={a.id}>Rows {a.rows}</p>
-          <p key={a.id}>Colums {a.columns}</p>
-        </div>
-
-      ))}
+            <p key={a.id}>Rows {a.rows}</p>
+            <p key={a.id}>Colums {a.columns}</p>
+          </div>
+        ))}
       </div>
     );
   }
@@ -79,12 +78,8 @@ class Airplanes extends Component {
   //     </div>
   //   );
   // }
-
-
 }
 
-
 //
-
 
 export default Airplanes;
