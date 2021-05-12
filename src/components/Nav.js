@@ -5,24 +5,12 @@ class Nav extends Component {
   render () {
     return (
       <nav>
-          <ul class="navlist">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/airplanes">Airplanes</Link>
-            </li>
-            <li>
-              <Link to="/flights">Flights</Link>
-            </li>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
-            <li>
-              <Link to="/admin">Admin</Link>
-            </li>
-          </ul>
-        </nav>
+        <Link to="/">Home</Link>
+        <Link to="/airplanes">Airplanes</Link>
+        <Link to="/flights">Flights</Link>
+        <Link to="/search">Search</Link>
+        <Link to="/admin">Admin</Link>
+      </nav>
     );
   }
 }
