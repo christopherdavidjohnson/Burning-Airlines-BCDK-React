@@ -18,40 +18,30 @@ class Flights extends Component {
       axios.get(SERVER_URL).then((results) => {
         this.setState({flights: results.data});
         setTimeout(fetchFlights, 4000); 
+        // setTimeout(console.log(this.state.flights), 10000); 
       });
-      this.saveFlight = this.saveFlight.bind(this);
     };
 
     fetchFlights();
-  }
-
-  saveFlight(content) {
-    axios.post(SERVER_URL, {content: content}).then((response)=>{
-      this.setState({flights: [...this.state.flights, response.data]});
-    });
   }
 
   render() {
     return (
       <div>
         <h1>Flights</h1>
-        {/* <FlightForm onSubmit={this.saveFlight} /> */}
-        <FlightsList flights={this.state.flights} />
+        {this.state.flights.map((f) => (
+        <div>
+          <p key={f.id}>{f.id}</p>
+          <p key={f.id}>{f.origin}</p>
+          <p key={f.id}>{f.destination}</p>
+          <p key={f.id}>{f.departure}</p>
+          <p key={f.id}>{f.arrival}</p>
+        </div>
+        
+      ))}
       </div>
     );
   }
 }
-
-
-
-const FlightsList = (props) => {
-  return (
-    <div>
-      {props.flights.map((s) => (
-        <p key={s.id}>{s.content}</p>
-      ))}
-    </div>
-  );
-};
 
 export default Flights;
