@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-const SERVER_URL = "http://localhost:3000/flights.json";
+const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
+
+// axios.get(SERVER_URL).then((results)=>{console.log(results.data)});
 
 class Flights extends Component {
   constructor() {
@@ -16,40 +18,39 @@ class Flights extends Component {
       axios.get(SERVER_URL).then((results) => {
         this.setState({flights: results.data});
         setTimeout(fetchFlights, 4000);
+        // setTimeout(console.log(this.state.flights), 10000);
       });
-      this.saveFlight = this.saveFlight.bind(this);
     };
 
     fetchFlights();
-  }
-
-  saveFlight(content) {
-    axios.post(SERVER_URL, {content: content}).then((response)=>{
-      this.setState({flights: [...this.state.flights, response.data]});
-    });
   }
 
   render() {
     return (
       <div>
         <h1>Flights</h1>
-        {/* <FlightForm onSubmit={this.saveFlight} /> */}
-        <FlightsList flights={this.state.flights} />
+        <table>
+        <tr>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+        </tr>
+          {this.state.flights.map((f) => (
+
+          <tr>
+            <td>{f.origin}</td>
+            <td>{f.destination}</td>
+            <td>{f.departure}</td>
+            <td key={f.id}>{f.arrival}</td>
+          </tr>
+
+
+      ))}
+      </table>
       </div>
     );
   }
 }
-
-
-
-const FlightsList = (props) => {
-  return (
-    <div>
-      {props.flights.map((s) => (
-        <p key={s.id}>{s.content}</p>
-      ))}
-    </div>
-  );
-};
 
 export default Flights;
