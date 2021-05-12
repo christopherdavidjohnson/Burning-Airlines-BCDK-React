@@ -3,9 +3,9 @@ import axios from "axios";
 
 const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
 
-axios.get(SERVER_URL).then((results) => {
-  console.log(results.data);
-});
+// axios.get(SERVER_URL).then((results) => {
+//   console.log(results.data);
+// });
 
 class Flights extends Component {
   constructor() {
