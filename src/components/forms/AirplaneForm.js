@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
+// const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
+
+const SERVER_URL = "http://localhost:3000/airplanes.json";
 
 class AirplaneForm extends Component {
   constructor() {
@@ -16,26 +18,29 @@ class AirplaneForm extends Component {
         this.setState({ airplanes: results.data });
         setTimeout(fetchAirplanes, 4000); // use recursion to call itself
       });
-      // this.saveAirPlane = this.saveAirPlane.bind(this);
-      // this._cancelSubmit = this._cancelSubmit.bind(this);
-      this._handleChangeName = this._handleChangeName.bind(this);
-      this._handleChangeRows = this._handleChangeRows.bind(this);
-      this._handleChangeColumns = this._handleChangeColumns.bind(this);
     };
+
+    // this.saveAirPlane = this.saveAirPlane.bind(this);
+    // this._cancelSubmit = this._cancelSubmit.bind(this);
+    this._handleChangeName = this._handleChangeName.bind(this);
+    this._handleChangeRows = this._handleChangeRows.bind(this);
+    this._handleChangeColumns = this._handleChangeColumns.bind(this);
 
     fetchAirplanes();
   }
 
   _handleSubmit(event) {
     event.preventDefault();
-    axios.post(SERVER_URL, {
-      name: this.state.name,
-      rows: this.state.rows,
-      columns: this.state.columns,
-    }).then((response)=>{
-      // this.setState({secrets: [...this.state.secrets, response.data]});
-      console.log(response);
-    });;
+    axios
+      .post(SERVER_URL, {
+        airplane:{name: this.state.name,
+        rows: this.state.rows,
+        columns: this.state.columns},
+      })
+      .then((response) => {
+        // this.setState({secrets: [...this.state.secrets, response.data]});
+        console.log(response);
+      });
     this.setState({ name: "", rows: "", columns: "" });
   }
 
