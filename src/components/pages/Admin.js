@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import AirplaneForm from '../AirplaneForm'
-import FlightForm from '../FlightForm'
+import AirplaneForm from '../forms/AirplaneForm'
+import FlightForm from '../forms/FlightForm'
+
 
 class Admin extends Component {
   render() {

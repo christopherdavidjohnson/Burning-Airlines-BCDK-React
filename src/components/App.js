@@ -2,10 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Airplanes from "./pages/Airplanes";
-import Flights from "./Flights";
+import Flights from "./pages/Flights";
 import Search from "./Search";
 import Nav from "./Nav";
 import Admin from "./pages/Admin";
+import '../App.css';
 
 function App() {
   return (
