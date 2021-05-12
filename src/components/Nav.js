@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import banner from './banner2.png'
+import banner from './bannernew.png'
 
 
 class Nav extends Component {
