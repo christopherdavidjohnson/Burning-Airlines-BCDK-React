@@ -31,7 +31,9 @@ class Airplanes extends Component {
   render() {
 
   const seats = [];
+
     this.state.airplanes.map((a) => {
+
     for (let i = 0; i < a.rows; i++){
       seats.push(<p>Seat</p>)
     }

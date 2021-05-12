@@ -40,15 +40,16 @@ class Flights extends Component {
             <th class="flightheadercell">Departure</th>
             <th class="flightheadercell">Arrival</th>
           </tr>
-
+        <tbody>
           {this.state.flights.map((f) => (
-            <tr>
+            <tr class="flightsrow" scope="row">
               <td class="flightstablecell">{f.origin}</td>
               <td class="flightstablecell">{f.destination}</td>
               <td class="flightstablecell">{f.departure}</td>
               <td class="flightstablecell">{f.arrival}</td>
             </tr>
           ))}
+        </tbody>
 
       </table>
       </div>
