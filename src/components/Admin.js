@@ -1,12 +1,19 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import AirplaneForm from './AirplaneForm'
+import FlightForm from './FlightForm'
 
-class Airplanes extends Component {
+class Admin extends Component {
   render() {
     return (
-      <h1> Welcome from Admin.js </h1>
+      <div>
+        <h1>Create new airplane</h1>
+        <AirplaneForm/>
+        <h1>Create new flight</h1>
+        <FlightForm/>
+      </div>
+      
     );
   }
 }
 
-export default Airplanes;
+export default Admin;
