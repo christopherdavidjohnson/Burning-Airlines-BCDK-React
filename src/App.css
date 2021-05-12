@@ -1,4 +1,4 @@
-*{
+body{
   background-color: white;
 }
 
@@ -16,4 +16,8 @@ nav{
 .navlink{
   display: inline;
   padding: 10px;
+}
+
+.plane{
+  padding: 20px;
 }

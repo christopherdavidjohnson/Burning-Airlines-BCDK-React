@@ -1,0 +1,39 @@
+.everythingflights{
+  background-color: #e8b4ae;
+  min-height: 100vh;
+  text-align: center;
+}
+
+h1{
+  padding:25px;
+  margin:0;
+}
+
+.flights{
+  padding: 20px;
+}
+
+.flightstable{
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 80vw;
+  margin-left: 10vw;
+}
+
+.flightstablehead{
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+.flightheadercell{
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 15px;
+  background-color: #fccfca;
+}
+
+.flightstablecell{
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: #fccfca;
+}
