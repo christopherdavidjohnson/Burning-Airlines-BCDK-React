@@ -19,9 +19,6 @@ class Nav extends Component {
               <Link to="/search">Search</Link>
             </li>
             <li>
-              <Link to="/flight/:flightID">Flight Details</Link>
-            </li>
-            <li>
               <Link to="/admin">Admin</Link>
             </li>
           </ul>
