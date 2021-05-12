@@ -32,7 +32,7 @@ class Flights extends Component {
   render() {
     return (
       <div>
-        <h1>Virgin Airlines</h1>
+        <h1>Flights</h1>
         {/* <FlightForm onSubmit={this.saveFlight} /> */}
         <FlightsList flights={this.state.flights} />
       </div>
