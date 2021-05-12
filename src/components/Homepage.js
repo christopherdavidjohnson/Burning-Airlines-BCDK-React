@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
-
 class Homepage extends Component {
   render () {
     return (
-      <h1> Welcome from Homepage.js</h1>
+      <h1> Welcome to Homepage!</h1>
     );
   }
 }

@@ -1,28 +1,25 @@
-
-import Homepage from './Homepage'
-import Nav from './Nav'
-import Airplanes from './Airplanes'
-import Flights from './Flights'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import React from "react";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Homepage from "./Homepage";
+import Airplanes from "./Airplanes";
+import Flights from "./Flights";
+import Search from "./Search";
+import Nav from "./Nav";
+import Admin from "./Admin";
 
 function App() {
   return (
     <Router>
-
-      <div className="App">
-
-      <h1>Welcome from App.js</h1>
-
+      <div>
         <Nav />
-
         <Switch>
-          <Route path="/" exact component={Homepage}/>
-          <Route path="/flights" component={Flights}/>
-          <Route path="/airplanes" component={Airplanes}/>
+          <Route exact path="/" component={Homepage}/>;
+          <Route exact path="/airplanes" component={Airplanes}/>;
+          <Route exact path="/flights" component={Flights}/>;
+          <Route exact path="/search" component={Search}/>;
+          <Route exact path="/admin" component={Admin}/>;
         </Switch>
-
       </div>
-
     </Router>
   );
 }

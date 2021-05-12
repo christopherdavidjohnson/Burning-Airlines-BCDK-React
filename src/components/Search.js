@@ -1,32 +1,31 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-const SERVER_URL = "http://localhost:3000/airplanes.json";
+const SERVER_URL = "http://localhost:3000/searchs.json";
 
-class Airplanes extends Component {
+class Search extends Component {
   constructor() {
     super();
-    console.log('constructor()');
     this.state = {
-      airplanes: [],
+      searchs: [],
     };
   }
 
   componentDidMount(){
-    const fetchAirplanes=()=>{
+    const fetchSearchs=()=>{
       axios.get(SERVER_URL).then((results) => {
-        this.setState({airplanes: results.data});
-        setTimeout(fetchAirplanes, 4000); 
+        this.setState({searchs: results.data});
+        setTimeout(fetchSearchs, 4000); 
       });
-      this.saveAirplane = this.saveAirplane.bind(this);
+      this.saveSearch = this.saveSearch.bind(this);
     };
 
-    fetchAirplanes();
+    fetchSearchs();
   }
 
-  saveAirplane(content) {
+  saveSearch(content) {
     axios.post(SERVER_URL, {content: content}).then((response)=>{
-      this.setState({airplanes: [...this.state.airplanes, response.data]});
+      this.setState({searchs: [...this.state.searchs, response.data]});
     });
   }
 
@@ -34,14 +33,14 @@ class Airplanes extends Component {
     return (
       <div>
         <h1>Virgin Airlines</h1>
-        <AirplaneForm onSubmit={this.saveAirplane} />
-        <AirplanesList airplanes={this.state.airplanes} />
+        <SearchForm onSubmit={this.saveSearch} />
+        <SearchsList searchs={this.state.searchs} />
       </div>
     );
   }
 }
 
-class AirplaneForm extends Component {
+class SearchForm extends Component {
   constructor() {
     super();
     this.state = { content: "" };
@@ -62,9 +61,8 @@ class AirplaneForm extends Component {
   render() {
     return (
       <form onSubmit={this._handleSubmit}>
-        <p><input type="text" placeholder="airplane name"/></p>
-        <p><input type="text" placeholder="airplane rows"/></p>
-        <p><input type="text" placeholder="airplane columns"/></p>
+        <p><input type="text" placeholder="origin"/></p>
+        <p><input type="text" placeholder="destination"/></p>
         <input type="submit" value="Save" />
         <input type="submit" value="Cancel" />
       </form>
@@ -72,14 +70,14 @@ class AirplaneForm extends Component {
   }
 }
 
-const AirplanesList = (props) => {
+const SearchsList = (props) => {
   return (
     <div>
-      {props.airplanes.map((s) => (
+      {props.searchs.map((s) => (
         <p key={s.id}>{s.content}</p>
       ))}
     </div>
   );
 };
 
-export default Airplanes;
+export default Search;
