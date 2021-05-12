@@ -36,6 +36,11 @@ class Airplanes extends Component {
         <div class="plane">
 
           <p key={a.id}>Name {a.name}</p>
+
+        for (i = 0 < {a.rows}; i++{
+          <p>Seat</p>
+        }
+
           <p key={a.id}>Rows {a.rows}</p>
           <p key={a.id}>Colums {a.columns}</p>
         </div>
@@ -44,6 +49,30 @@ class Airplanes extends Component {
       </div>
     );
   }
+
+  // render() {
+  //   return (
+  //     <div>
+  //       <h1> Airplanes </h1>
+  //
+  //       {this.state.airplanes.map((a) => (
+  //       <div class="plane">
+  //
+  //         <p key={a.id}>Name {a.name}</p>
+  //
+  //         {this.state.airplanes.rows.map((r) => (
+  //           <div class="plane">
+  //             <p>SEAT{r}</p>
+  //           </div>
+  //         ))}
+  //
+  //       </div>
+  //       ))}
+  //     </div>
+  //   );
+  // }
+
+
 }
 
 

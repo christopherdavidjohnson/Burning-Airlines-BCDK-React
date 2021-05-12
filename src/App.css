@@ -1,12 +1,17 @@
 body{
   background-color: white;
+  text-align: center;
+}
+.banner{
+  height: 20vw;
+  width: 100vw;
 }
 
 nav{
-  padding-top: 20px;
+  margin-top: -400px;
   padding-bottom: 20px;
   text-align: center;
-  background-color: red;
+  margin-top: 0;
 }
 
 .navlinks{

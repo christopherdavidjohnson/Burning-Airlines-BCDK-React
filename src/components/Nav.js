@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import banner from './banner2.png'
 
 
 class Nav extends Component {
@@ -9,7 +10,9 @@ class Nav extends Component {
       // <img src="https://i.imgur.com/Aela5Rh.jpg">
       // <img src={'https://i.imgur.com/Aela5Rh.jpg'}>
 
+
       <nav>
+          <img class="banner" src={banner} alt="banner" />
 
         <div class="navlink">
           <Link to="/">Home</Link>
