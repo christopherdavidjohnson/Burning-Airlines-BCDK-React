@@ -1,83 +1,109 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-const SERVER_URL = "http://localhost:3000/searchs.json";
+const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
+
+
 
 class Search extends Component {
   constructor() {
     super();
     this.state = {
-      searchs: [],
+      origin: '',
+      destination: '',
+      flights: []
     };
+    this._handleOriginChange = this._handleOriginChange.bind(this);
+    this._handleDestinationChange = this._handleDestinationChange.bind(this);
+    this._fetchFlights = this._fetchFlights.bind(this);
+
   }
 
-  componentDidMount(){
-    const fetchSearchs=()=>{
-      axios.get(SERVER_URL).then((results) => {
-        this.setState({searchs: results.data});
-        setTimeout(fetchSearchs, 4000); 
+  _handleOriginChange(event) {
+    this.setState({ origin: event.target.value });
+  }
+
+  _handleDestinationChange(event) {
+    this.setState({ destination: event.target.value });
+  }
+
+  _fetchFlights(event) {
+    event.preventDefault();
+    axios.get(SERVER_URL).then((results) => {
+      let searchResults = [];
+      results.data.forEach( (e) => {
+        if(e.origin === this.state.origin && e.destination === this.state.destination) {
+          searchResults.push(e);
+        } else {
+          console.log('There are no flights available within your search terms');
+        }
       });
-      this.saveSearch = this.saveSearch.bind(this);
-    };
-
-    fetchSearchs();
-  }
-
-  saveSearch(content) {
-    axios.post(SERVER_URL, {content: content}).then((response)=>{
-      this.setState({searchs: [...this.state.searchs, response.data]});
-    });
+      this.setState({ flights: searchResults })
+    })
+    this.setState({ origin: '', destination: '' });
   }
 
   render() {
     return (
       <div>
-        <h1>Virgin Airlines</h1>
-        <SearchForm onSubmit={this.saveSearch} />
-        <SearchsList searchs={this.state.searchs} />
+      <form onSubmit={this._handleSubmit}>
+        <p><input onChange={ this._handleOriginChange } type="text" placeholder="origin"/></p>
+        <p><input onChange={ this._handleDestinationChange } type="text" placeholder="destination"/></p>
+        <input onClick={ this._fetchFlights } type="submit" value="Search" />
+      </form>
+      <SearchList flights={this.state.flights}/>
       </div>
     );
   }
 }
 
-class SearchForm extends Component {
-  constructor() {
-    super();
-    this.state = { content: "" };
-    this._handleChange = this._handleChange.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
-  }
-
-  _handleChange(event) {
-    this.setState({ content: event.target.value });
-  }
-
-  _handleSubmit(event) {
-    event.preventDefault();
-    this.props.onSubmit(this.state.content);
-    this.setState({ content: "" });
-  }
-
-  render() {
-    return (
-      <form onSubmit={this._handleSubmit}>
-        <p><input type="text" placeholder="origin"/></p>
-        <p><input type="text" placeholder="destination"/></p>
-        <input type="submit" value="Save" />
-        <input type="submit" value="Cancel" />
-      </form>
-    );
-  }
-}
-
-const SearchsList = (props) => {
+const SearchList = (props) => {
   return (
     <div>
-      {props.searchs.map((s) => (
-        <p key={s.id}>{s.content}</p>
-      ))}
+      {props.flights.map((f) => {
+        console.log(f)
+      })
+      }
     </div>
   );
 };
 
 export default Search;
+
+//
+// class Search extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       searchs: [],
+//     };
+//   }
+//
+//   componentDidMount(){
+//     const fetchSearchs=()=>{
+//       axios.get(SERVER_URL).then((results) => {
+//         this.setState({searchs: results.data});
+//         setTimeout(fetchSearchs, 4000);
+//       });
+//       this.saveSearch = this.saveSearch.bind(this);
+//     };
+//
+//     fetchSearchs();
+//   }
+//
+//   saveSearch(content) {
+//     axios.post(SERVER_URL, {content: content}).then((response)=>{
+//       this.setState({searchs: [...this.state.searchs, response.data]});
+//     }); ////don't think we should push searches to database - needs to redirect to reservation creation page
+//   }
+//
+//   render() {
+//     return (
+//       <div>
+//         <h1>Virgin Airlines</h1>
+//         <SearchForm onSubmit={this.saveSearch} />
+//         <SearchsList searchs={this.state.searchs} />
+//       </div>
+//     );
+//   }
+// }
