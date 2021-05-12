@@ -25,6 +25,7 @@ class Airplanes extends Component {
     };
 
     fetchAirplanes();
+
   }
 
 
@@ -37,9 +38,7 @@ class Airplanes extends Component {
 
           <p key={a.id}>Name {a.name}</p>
 
-        for (i = 0 < {a.rows}; i++{
-          <p>Seat</p>
-        }
+        {React.createElement("p",null,a.rows)}
 
           <p key={a.id}>Rows {a.rows}</p>
           <p key={a.id}>Colums {a.columns}</p>
