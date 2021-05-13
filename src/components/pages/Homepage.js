@@ -5,7 +5,7 @@ import '../stylesheets/homepage.css';
 class Homepage extends Component {
   render () {
     return (
-      <h1> Welcome to Homepage!</h1>
+      <h1> Welcome to Burning Airlines!</h1>
     );
   }
 }
