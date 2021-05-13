@@ -7,6 +7,7 @@ import FlightShow from "./pages/FlightShow"
 import Search from "./Search";
 import Nav from "./Nav";
 import Admin from "./pages/Admin";
+import Booking from "./pages/Booking"
 import '../App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/flightShow" component={FlightShow}/>;
           <Route exact path="/search" component={Search}/>;
           <Route exact path="/admin" component={Admin}/>;
+          <Route exact path="/booking" component={Booking}/>;
         </Switch>
       </div>
     </Router>

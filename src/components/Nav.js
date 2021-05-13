@@ -38,6 +38,10 @@ class Nav extends Component {
           <Link to="/admin">Admin</Link>
         </div>
 
+        <div class="navlink">
+          <Link to="/booking">Booking</Link>
+        </div>
+
       </nav>
     );
   }
