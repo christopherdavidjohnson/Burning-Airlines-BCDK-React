@@ -1,6 +1,9 @@
 .plane{
+  z-index: -2;
+  position: relative;
   margin: 0 auto;
   width: 50vw;
+  /* background-color: white; */
 }
 
 /* .cabin{
@@ -18,6 +21,7 @@
   width: 30%;
   margin: 0 auto;
   align-items: stretch;
+  filter: drop-shadow(5px 5px 5px);
 }
 
 .seat{
@@ -34,4 +38,24 @@
 
 .tailimg{
   width: 100%;
+}
+
+.wingsimg{
+  position: absolute;
+  display: flex;
+  width: 100%;
+  z-index: -1;
+  top: 40vw;
+}
+
+.wingsimg{
+  filter: drop-shadow(10px 10px 10px);
+}
+
+.tailimg{
+  filter: drop-shadow(10px 10px 10px);
+}
+
+.noseimg{
+  filter: drop-shadow(10px 10px 10px);
 }
