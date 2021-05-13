@@ -3,6 +3,7 @@ import axios from "axios";
 import "../stylesheets/airplanes.css";
 import nose from '../images/nose.png'
 import tail from '../images/tail.png'
+import wings from '../images/wings.png'
 
 const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/airplanes.json";
 
@@ -61,10 +62,11 @@ class Airplanes extends Component {
               </div>
             </div>
 
-            <img class="tailimg" src={tail} alt="tail" />
 
-            <p key={a.id}>{a.rows} Rows</p>
-            <p key={a.id}>{a.columns} Columns</p>
+            <img class="tailimg" src={tail} alt="tail" />
+            <img class="wingsimg" src={wings} alt="wings" />
+
+
           </div>
         ))}
       </div>
