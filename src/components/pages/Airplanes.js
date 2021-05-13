@@ -40,7 +40,8 @@ class Airplanes extends Component {
     for (let i = 0; i < this.state.airplanes.length; i++) {
       for (let j = 0; j < this.state.airplanes[i].rows; j++) {
         for (let k = 0; k < this.state.airplanes[i].columns; k++) {
-          airplanes[i].push(<div class='seat'>Seat</div>)
+          const id=`${j}_${k}`
+          airplanes[i].push(<div class='seat' id={id}></div>)
         }
       }
     }
@@ -54,9 +55,10 @@ class Airplanes extends Component {
             <p key={a.id}>Name {a.name}</p>
 
             <img class="noseimg" src={nose} alt="nose" />
-
-            <div class="seatinggrid">
-              {airplanes[i]}
+            <div class="cabin">
+              <div class="seatinggrid">
+                {airplanes[i]}
+              </div>
             </div>
 
             <img class="tailimg" src={tail} alt="tail" />
