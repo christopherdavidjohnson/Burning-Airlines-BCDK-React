@@ -57,19 +57,7 @@ class FlightShow extends Component {
       <div>
         <h1> This is {this.state.name}'s airplane</h1>
         <h2> This airplane has { this.state.total_seats} seats available </h2>
-        <table>
-         for(let i = 0; i < this.state.rows; i ++){
-            render()
 
-          }
-
-
-          // {this.state.rows.forEach((element) => {
-          //   <tr> {this.state.colums.forEach((element) => {
-          //     <td>{hello}</td>
-          //   })} </tr>
-          // })}
-        </table>
       </div>
 
       // <div class="everythingflights">
