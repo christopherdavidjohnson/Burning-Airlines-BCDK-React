@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Booking extends Component {
+class ReservationForm extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
     render() { 
-        return ( <div>Booking</div> );
+        return ( <div>Reservation</div> );
     }
 }
  
-export default Booking;
+export default ReservationForm;
