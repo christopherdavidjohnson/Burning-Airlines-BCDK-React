@@ -60,6 +60,8 @@ class Search extends Component {
 }
 
 const SearchList = (props) => {
+
+
     return(
       <div class="searchedFlights">
         <h1>Flight Results</h1>
@@ -71,7 +73,7 @@ const SearchList = (props) => {
             <th class="flightheadercell">Arrival</th>
           </tr>
           { props.flights.map((f) => (
-            <tr onClick={}class="flightsrow" scope="row">
+            <tr class="flightsrow" scope="row">
               <td class="flightstablecell">{f.origin}</td>
               <td class="flightstablecell">{f.destination}</td>
               <td class="flightstablecell">{f.departure}</td>
