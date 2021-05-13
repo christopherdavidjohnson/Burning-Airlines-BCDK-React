@@ -1,6 +1,13 @@
 .plane{
-  margin: 50px;
+  margin: 0 auto;
+  width: 50vw;
 }
+
+/* .cabin{
+  width: 200px;
+  background-color: white;
+  margin: 0 auto;
+} */
 
 .seatinggrid{
   position: relative;
@@ -8,19 +15,23 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   background-color: white;
-  width: 90px;
+  width: 30%;
+  margin: 0 auto;
+  align-items: stretch;
 }
 
 .seat{
-  width: 90px;
-  height: 90px;
+  display: flex;
+  align-items:center;
+  width: 100%;
+  height: 5vw;;
   background-color: green;
 }
 
 .noseimg{
-  width: 200px;
+  width: 40%;
 }
 
 .tailimg{
-  width: 350px;
+  width: 100%;
 }
