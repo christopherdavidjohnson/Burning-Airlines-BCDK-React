@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-// const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
-
-const SERVER_URL = "http://localhost:3000/airplanes.json";
+const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/airplanes.json";
 
 class AirplaneForm extends Component {
   constructor() {
