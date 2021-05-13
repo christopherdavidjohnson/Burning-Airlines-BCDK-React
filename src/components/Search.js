@@ -65,6 +65,7 @@ class SearchList extends Component {
     super();
     this.state = {
       flightNumber: null
+
     }
     this._handleChange = this._handleChange.bind(this);
   }
@@ -108,7 +109,7 @@ class SearchList extends Component {
       <input class="FlightNumber" onChange={this._handleChange} placeholder="flight number e.g. 1" value={ this.state.flightNumber }/>
       <input class="FlightNumber" type="submit" value="Book"/>
       </form>
-      <FlightShow toBook={this.state.flightNumber}/>
+      <FlightShow flightId={ this.state.flightNumber }/>
       </div>
     )
   }

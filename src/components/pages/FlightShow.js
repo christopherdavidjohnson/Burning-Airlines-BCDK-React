@@ -10,8 +10,8 @@ class FlightShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      airplane_id: 1,
-      flight_id: props.flightNumber,
+      airplane_id: null,
+      flight_id: props,
       name: 'Test',
       rows: 7,
       columns: 3,
@@ -23,6 +23,7 @@ class FlightShow extends Component {
       available_seats: [],
       total_seats: 27
     };
+    console.log("These are passed from search",Number(this.state.flight_id));
   }
 
   componentDidMount() {
@@ -42,7 +43,7 @@ class FlightShow extends Component {
       axios.get(SERVER_URL + "/reservations.json").then((results) => {
         console.log(results);
         results.data.forEach((element) => {
-          if(this.state.flight_id === element.flight_id){
+          if(Number(this.state.flight_id) === element.flight_id){
 
           }
         })
