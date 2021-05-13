@@ -117,6 +117,12 @@ class ReservationForm extends Component {
         }
       }
     }
+
+    const makeReservation = (j,k)=>{
+        this.setState({row_id:j,column_id:k,user_id:1, flight_id:1});
+
+    }
+
     return (
       <div>
         <form onSubmit={this._handleSubmit}>
@@ -155,7 +161,7 @@ class ReservationForm extends Component {
           <input type="submit" value="Save" onSubmit={this._handleSubmit} />
           <input type="button" value="Cancel" onClick={this._cancelSubmit} />
         </form>
-        {airplanes[0]}
+        {/* {airplanes[0]} */}
       </div>
     );
   }
