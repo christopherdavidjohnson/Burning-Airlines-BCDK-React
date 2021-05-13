@@ -43,7 +43,7 @@ class FlightForm extends Component {
       .then((response) => {
         console.log(response);
       });
-      this.setState = { origin: "", destination: "", departure: "", arrival:"", airplane_id:"" };
+      this.setState({ origin: "", destination: "", departure: "", arrival:"", airplane_id:"" });
   }
 
   _handleChangeOrigin(event) {
@@ -63,7 +63,7 @@ class FlightForm extends Component {
   }
 
   _handleChangePlaneID(event) {
-    this.setState({ plane_id: event.target.value - 0 });
+    this.setState({ airplane_id: event.target.value - 0 });
   }
 
   // saveAirPlane(flight) {
@@ -116,7 +116,7 @@ class FlightForm extends Component {
           <input
             type="text"
             onChange={this._handleChangePlaneID}
-            value={this.state.plane_id}
+            value={this.state.airplane_id}
             placeholder="flight plane_id"
           />
         </p>
