@@ -27,6 +27,10 @@ class Nav extends Component {
         </div>
 
         <div class="navlink">
+          <Link to="/flightShow">FlightShow</Link>
+        </div>
+
+        <div class="navlink">
           <Link to="/search">Search</Link>
         </div>
 
