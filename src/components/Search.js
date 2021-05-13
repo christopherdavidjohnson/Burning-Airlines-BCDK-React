@@ -61,6 +61,10 @@ class Search extends Component {
 
 const SearchList = (props) => {
 
+  const _createReservation = (event) => {
+    console.log(event.target.value);
+  }
+
 
     return(
       <div class="searchedFlights">
@@ -73,7 +77,7 @@ const SearchList = (props) => {
             <th class="flightheadercell">Arrival</th>
           </tr>
           { props.flights.map((f) => (
-            <tr class="flightsrow" scope="row">
+            <tr onClick={ this._createReservation } class="flightsrow" scope="row">
               <td class="flightstablecell">{f.origin}</td>
               <td class="flightstablecell">{f.destination}</td>
               <td class="flightstablecell">{f.departure}</td>
