@@ -8,10 +8,18 @@ body{
 }
 
 nav{
-  margin-top: -400px;
+  overflow: hidden;
   padding-bottom: 20px;
   text-align: center;
   margin-top: 0;
+  font-size: 2vw;
+  color: black;
+}
+a {
+  color: black;
+}
+a:hover {
+  color: red;
 }
 
 .navlinks{
@@ -20,7 +28,8 @@ nav{
 
 .navlink{
   display: inline;
-  padding: 10px;
+  padding: 1vw;
+  margin-top: 10vw;
 }
 
 .plane{
