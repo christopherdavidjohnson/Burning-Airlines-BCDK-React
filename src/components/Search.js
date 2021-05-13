@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
-
+import './stylesheets/search.css';
+import FlightShow from './pages/FlightShow'
 const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
 
 
@@ -60,15 +61,34 @@ class Search extends Component {
 }
 
 class SearchList extends Component {
-  render(){
-    const _createReservation = (event) => {
-      console.log(event.target.value);
+  constructor(){
+    super();
+    this.state = {
+      flightNumber: null
     }
+    this._handleChange = this._handleChange.bind(this);
+  }
+
+  _handleChange(event){
+
+    let flightSelection = event.target.value;
+    console.log(flightSelection);
+    this.setState({flightNumber: flightSelection});
+  }
+
+  _handleSubmit(event){
+    event.preventDefault();
+
+    //this.props.giveFlightId(this.state.flightNumber);
+  }
+  render(){
+
     return(
       <div class="searchedFlights" >
         <h1>Flight Results</h1>
         <table class="flightstable">
           <tr class="flightstablehead">
+            <th class="flightheadercell">Flight No.</th>
             <th class="flightheadercell">Origin</th>
             <th class="flightheadercell">Destination</th>
             <th class="flightheadercell">Departure</th>
@@ -84,9 +104,11 @@ class SearchList extends Component {
             </tr>
           ))}
       </table>
-      <form onSubmit={ _createReservation }>
-      <input placeholder="flight id e.g. 1"/>
+      <form onSubmit={this._handleSubmit}>
+      <input class="FlightNumber" onChange={this._handleChange} placeholder="flight number e.g. 1" value={ this.state.flightNumber }/>
+      <input class="FlightNumber" type="submit" value="Book"/>
       </form>
+      <FlightShow toBook={this.state.flightNumber}/>
       </div>
     )
   }

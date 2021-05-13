@@ -7,11 +7,11 @@ const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com";
 // axios.get(SERVER_URL).then((results)=>{console.log(results.data)});
 
 class FlightShow extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       airplane_id: 1,
-      flight_id: 1,
+      flight_id: props.flightNumber,
       name: 'Test',
       rows: 7,
       columns: 3,
