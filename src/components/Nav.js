@@ -39,7 +39,7 @@ class Nav extends Component {
         </div>
 
         <div class="navlink">
-          <Link to="/booking">Booking</Link>
+          <Link to="/reservation">Reservation</Link>
         </div>
 
       </nav>
