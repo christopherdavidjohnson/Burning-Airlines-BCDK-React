@@ -27,6 +27,7 @@ class Search extends Component {
     this.setState({ destination: event.target.value });
   }
 
+
   _fetchFlights(event) {
     event.preventDefault();
     axios.get(SERVER_URL).then((results) => {
@@ -38,10 +39,11 @@ class Search extends Component {
           console.log('There are no flights available within your search terms');
         }
       });
-      this.setState({ flights: searchResults })
+      this.setState({ flights: searchResults });
     })
-    this.setState({ origin: '', destination: '' });
+    // this.setState({ origin: '', destination: '' });
   }
+
 
   render() {
     return (
@@ -58,52 +60,26 @@ class Search extends Component {
 }
 
 const SearchList = (props) => {
-  return (
-    <div>
-      {props.flights.map((f) => {
-        console.log(f)
-      })
-      }
-    </div>
-  );
-};
-
+    return(
+      <div class="searchedFlights">
+        <h1>Flight Results</h1>
+        <table class="flightstable">
+          <tr class="flightstablehead">
+            <th class="flightheadercell">Origin</th>
+            <th class="flightheadercell">Destination</th>
+            <th class="flightheadercell">Departure</th>
+            <th class="flightheadercell">Arrival</th>
+          </tr>
+          { props.flights.map((f) => (
+            <tr onClick={}class="flightsrow" scope="row">
+              <td class="flightstablecell">{f.origin}</td>
+              <td class="flightstablecell">{f.destination}</td>
+              <td class="flightstablecell">{f.departure}</td>
+              <td class="flightstablecell">{f.arrival}</td>
+            </tr>
+          ))}
+      </table>
+      </div>
+    )
+}
 export default Search;
-
-//
-// class Search extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       searchs: [],
-//     };
-//   }
-//
-//   componentDidMount(){
-//     const fetchSearchs=()=>{
-//       axios.get(SERVER_URL).then((results) => {
-//         this.setState({searchs: results.data});
-//         setTimeout(fetchSearchs, 4000);
-//       });
-//       this.saveSearch = this.saveSearch.bind(this);
-//     };
-//
-//     fetchSearchs();
-//   }
-//
-//   saveSearch(content) {
-//     axios.post(SERVER_URL, {content: content}).then((response)=>{
-//       this.setState({searchs: [...this.state.searchs, response.data]});
-//     }); ////don't think we should push searches to database - needs to redirect to reservation creation page
-//   }
-//
-//   render() {
-//     return (
-//       <div>
-//         <h1>Virgin Airlines</h1>
-//         <SearchForm onSubmit={this.saveSearch} />
-//         <SearchsList searchs={this.state.searchs} />
-//       </div>
-//     );
-//   }
-// }

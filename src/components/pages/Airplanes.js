@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "../stylesheets/airplanes.css";
+import nose from '../images/nose.png'
+import tail from '../images/tail.png'
 
 const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/airplanes.json";
 
@@ -28,6 +30,7 @@ class Airplanes extends Component {
   }
 
   render() {
+
     let airplanes = {};
 
     for (let i = 0; i < this.state.airplanes.length; i++) {
@@ -36,7 +39,10 @@ class Airplanes extends Component {
 
     for (let i = 0; i < this.state.airplanes.length; i++) {
       for (let j = 0; j < this.state.airplanes[i].rows; j++) {
-        airplanes[i].push(<p>Seat</p>)
+        for (let k = 0; k < this.state.airplanes[i].columns; k++) {
+          const id=`${j}_${k}`
+          airplanes[i].push(<div class='seat' id={id}></div>)
+        }
       }
     }
 
@@ -45,12 +51,20 @@ class Airplanes extends Component {
         <h1>Airplanes</h1>
         {this.state.airplanes.map((a,i) => (
           <div class="plane">
+
             <p key={a.id}>Name {a.name}</p>
 
-            {airplanes[i]}
+            <img class="noseimg" src={nose} alt="nose" />
+            <div class="cabin">
+              <div class="seatinggrid">
+                {airplanes[i]}
+              </div>
+            </div>
 
-            <p key={a.id}>Rows {a.rows}</p>
-            <p key={a.id}>Colums {a.columns}</p>
+            <img class="tailimg" src={tail} alt="tail" />
+
+            <p key={a.id}>{a.rows} Rows</p>
+            <p key={a.id}>{a.columns} Columns</p>
           </div>
         ))}
       </div>
