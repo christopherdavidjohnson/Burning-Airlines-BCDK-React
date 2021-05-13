@@ -43,7 +43,7 @@ class FlightForm extends Component {
       .then((response) => {
         console.log(response);
       });
-      this.state = { origin: "", destination: "", departure: "", arrival:"", airplane_id:"" };
+      this.setState = { origin: "", destination: "", departure: "", arrival:"", airplane_id:"" };
   }
 
   _handleChangeOrigin(event) {
