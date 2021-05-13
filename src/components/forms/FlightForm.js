@@ -6,7 +6,13 @@ const SERVER_URL = "https://burning-airlines-bcdk.herokuapp.com/flights.json";
 class FlightForm extends Component {
   constructor() {
     super();
-    this.state = { origin: "", destination: "", departure: "", arrival:"", airplane_id:"" };
+    this.state = {
+      origin: "",
+      destination: "",
+      departure: "",
+      arrival: "",
+      airplane_id: "",
+    };
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
@@ -25,6 +31,7 @@ class FlightForm extends Component {
     this._handleChangeDeparture = this._handleChangeDeparture.bind(this);
     this._handleChangeArrival = this._handleChangeArrival.bind(this);
     this._handleChangePlaneID = this._handleChangePlaneID.bind(this);
+    this._cancelSubmit = this._cancelSubmit.bind(this);
 
     fetchFlights();
   }
@@ -33,17 +40,25 @@ class FlightForm extends Component {
     event.preventDefault();
     axios
       .post(SERVER_URL, {
-        flight:{origin: this.state.origin,
-        destination: this.state.destination,
-        departure: this.state.departure,
-        arrival: this.state.arrival,
-        airplane_id: this.state.airplane_id
-      },
+        flight: {
+          origin: this.state.origin,
+          destination: this.state.destination,
+          departure: this.state.departure,
+          arrival: this.state.arrival,
+          airplane_id: this.state.airplane_id,
+        },
       })
       .then((response) => {
         console.log(response);
       });
-      this.setState({ origin: "", destination: "", departure: "", arrival:"", airplane_id:"" });
+    this.setState({
+      origin: "",
+      destination: "",
+      departure: "",
+      arrival: "",
+      airplane_id: "",
+    });
+    alert("Flight created!");
   }
 
   _handleChangeOrigin(event) {
@@ -51,15 +66,15 @@ class FlightForm extends Component {
   }
 
   _handleChangeDestination(event) {
-    this.setState({ destination: event.target.value});
+    this.setState({ destination: event.target.value });
   }
 
   _handleChangeDeparture(event) {
-    this.setState({ departure: event.target.value});
+    this.setState({ departure: event.target.value });
   }
 
   _handleChangeArrival(event) {
-    this.setState({ arrival: event.target.value});
+    this.setState({ arrival: event.target.value });
   }
 
   _handleChangePlaneID(event) {
@@ -73,9 +88,15 @@ class FlightForm extends Component {
   //   });
   // }
 
-  // _cancelSubmit() {
-  //   this.setState({ flight: {} });
-  // }
+  _cancelSubmit() {
+    this.setState({
+      origin: "",
+      destination: "",
+      departure: "",
+      arrival: "",
+      airplane_id: "",
+    });
+  }
 
   render() {
     return (

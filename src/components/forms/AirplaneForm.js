@@ -23,7 +23,7 @@ class AirplaneForm extends Component {
     this._handleChangeName = this._handleChangeName.bind(this);
     this._handleChangeRows = this._handleChangeRows.bind(this);
     this._handleChangeColumns = this._handleChangeColumns.bind(this);
-
+    this._cancelSubmit = this._cancelSubmit.bind(this);
     fetchAirplanes();
   }
 
@@ -31,15 +31,18 @@ class AirplaneForm extends Component {
     event.preventDefault();
     axios
       .post(SERVER_URL, {
-        airplane:{name: this.state.name,
-        rows: this.state.rows,
-        columns: this.state.columns},
+        airplane: {
+          name: this.state.name,
+          rows: this.state.rows,
+          columns: this.state.columns,
+        },
       })
       .then((response) => {
         // this.setState({secrets: [...this.state.secrets, response.data]});
         console.log(response);
       });
     this.setState({ name: "", rows: "", columns: "" });
+    alert("Plane created!");
   }
 
   _handleChangeName(event) {
@@ -61,9 +64,9 @@ class AirplaneForm extends Component {
   //   });
   // }
 
-  // _cancelSubmit() {
-  //   this.setState({ airplane: {} });
-  // }
+  _cancelSubmit() {
+    this.setState({ name: "", rows: "", columns: "" });
+  }
 
   render() {
     return (
