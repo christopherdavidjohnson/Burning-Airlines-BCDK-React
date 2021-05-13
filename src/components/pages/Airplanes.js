@@ -42,30 +42,35 @@ class Airplanes extends Component {
       for (let j = 0; j < this.state.airplanes[i].rows; j++) {
         for (let k = 0; k < this.state.airplanes[i].columns; k++) {
           const id=`${j}_${k}`
-          airplanes[i].push(<div class='seat' id={id}></div>)
+          airplanes[i].push(<div class='seat' id={id}>{j}_{k}</div>)
         }
       }
     }
 
+
+
+
+
     return (
       <div>
         <h1>Airplanes</h1>
+
         {this.state.airplanes.map((a,i) => (
           <div class="plane">
 
             <p key={a.id}>Name {a.name}</p>
 
             <img class="noseimg" src={nose} alt="nose" />
-            <div class="cabin">
-              <div class="seatinggrid">
-                {airplanes[i]}
-              </div>
-            </div>
 
+              <div class="cabin">
+
+                <div class="seatinggrid" style={{"grid-template-columns": '1fr '.repeat( a.columns )}}>
+                  {airplanes[i]}
+                </div>
+              </div>
 
             <img class="tailimg" src={tail} alt="tail" />
             <img class="wingsimg" src={wings} alt="wings" />
-
 
           </div>
         ))}
